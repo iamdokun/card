@@ -1,55 +1,39 @@
-// let cardButton = document.getElementById("btn");
-// cardButton.addEventListener("click", cardFunction);
+  let cardButton = document.getElementById('btn');
 
-// let cardNumber = document.getElementById("cardNum").value;
-// let masterCard = [53]
-
-//     for(let card = cardNumber.lenght; card++;) {
-//     function cardFunction () {
-//     if(cardNumber[card].includes(masterCard)) {
-//         console.log(`Master card: ${cardNumber}`);
-    
-//     } else if (cardNumber[card].includes(visaCard)) {
-//         console.log(`Visa card: ${cardNumber}`);
-    
-//     } else if (cardNumber[card].includes(verveCard)) {
-//         console.log(`Verve card: ${cardNumber}`);
-    
-//     } else {
-//         console.log(`Unautorize Card, check with your bank`);
-//     }
-
-//     }
-//     }
-    
-let cardButton = document.getElementById('btn');
-let cardNumber =  document.getElementById('cardNum').value;
-        console.log(cardNumber);
+  let cardNumberDisplay = document.getElementById('displayCardType')
+ 
 cardButton.addEventListener('click', cardFunction);
 
-
-
 function cardFunction() {
+
+    let cardNumber =  document.getElementById('cardNum').value;
+
+    console.log({cardNumber});
     
-    const firstFourDigits = cardNumber.slice(0,4);
+    cardNumberDisplay.innerHTML = `Card Number: ${cardNumber}`;
+    
+    const firstSixDigits = cardNumber.slice(0,6);
 
-    console.log(firstFourDigits);
-
-if (firstFourDigits === '5399') {
+if (firstSixDigits === '539983') {
     
     alert(`Master card: ${cardNumber}`);
 
-} else if (firstFourDigits === '0234') {
+} else if (firstSixDigits === '458587' || firstSixDigits === '467875' || firstSixDigits === '496021') {
 
     alert(`Visa card: ${cardNumber}`);
 
-} else if (firstFourDigits === '9908') {
+} else if (firstSixDigits === '650002' || firstSixDigits === '650003' || firstSixDigits === '650004') {
 
     alert(`Verve card: ${cardNumber}`);
+
+} else if (firstSixDigits === '') {
+
+    alert(`Enter Card Number`);
 
 } else {
 
     alert(`Unauthorized card, Check with your bank`);
+
 }
 
 }
